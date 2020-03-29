@@ -23,6 +23,7 @@ public class GameSystem : MonoBehaviour
     {
         EncountMole();
         StartButton.SetActive(false);
+
     }
 
     //モグラ出現
