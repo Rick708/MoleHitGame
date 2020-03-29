@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class MoleManager : MonoBehaviour
 {
-    Action tapAction;
+    //Action tapAction;
 
-    public void AddEventListenerOnTap(Action action)
-    {
-        tapAction += action;
-    }
+    //public void AddEventListenerOnTap(Action action)
+    //{
+    //    tapAction += action;
+    //}
 
+    //モグラ削除
     public void OnTap()
     {
-        tapAction();
+        Destroy(gameObject);
+        //tapAction();
     }
 }
