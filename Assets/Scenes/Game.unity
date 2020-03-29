@@ -895,10 +895,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ee7f7fd0e824bed862ff4a94eec04f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MolePrefab: {fileID: 0}
-  TitleButton: {fileID: 0}
-  HistoryButton: {fileID: 0}
-  StartButton: {fileID: 0}
+  MolePrefab: {fileID: 5829247591877686564, guid: 01dd9bd99f66d43639511214f3c1206c,
+    type: 3}
+  TitleButton: {fileID: 1903586247}
+  HistoryButton: {fileID: 1407257472}
+  StartButton: {fileID: 1216745863}
 --- !u!114 &738861366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,9 +979,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1216745863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6352797177578327107, guid: cfd1e73e9aaef4dd99fe3493e8aaac12,
+    type: 3}
+  m_PrefabInstance: {fileID: 93503674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1216745864 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6352797177578327116, guid: cfd1e73e9aaef4dd99fe3493e8aaac12,
     type: 3}
   m_PrefabInstance: {fileID: 93503674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1407257472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6352797177578327107, guid: cfd1e73e9aaef4dd99fe3493e8aaac12,
+    type: 3}
+  m_PrefabInstance: {fileID: 264637934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1903586247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6352797177578327107, guid: cfd1e73e9aaef4dd99fe3493e8aaac12,
+    type: 3}
+  m_PrefabInstance: {fileID: 10363562}
   m_PrefabAsset: {fileID: 0}

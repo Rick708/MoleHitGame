@@ -26,20 +26,18 @@ public class GameSystem : MonoBehaviour
     }
 
     //モグラ出現
+
     void EncountMole()
     {
-        Mole = Instantiate(MolePrefab);
-        MoleManager moleManager = Mole.GetComponent<MoleManager>();
-        moleManager.AddEventListenerOnTap(MoleTap);
+        for(int i = 0; i < 3; i++){
+            Mole = Instantiate(MolePrefab);
+            MoleManager moleManager = Mole.GetComponent<MoleManager>();
+            Vector3 p = moleManager.transform.position;
+            p.x = Random.Range(-2, 2);
+            p.y = Random.Range(-4, 4);
+            moleManager.transform.position = p;
+        }
     }
-    //モグラ削除
-    void MoleTap()
-    {
-        // moleManager.AddEventListenerOnTap(MoleTap);
-        Debug.Log("いけた！！");
-        Destroy(Mole.gameObject);
-    }
-
 
     //シーン移動
     public void OnTitleButton()
