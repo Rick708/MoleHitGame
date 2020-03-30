@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class MoleManager : MonoBehaviour
 {
-    //Action tapAction;
-
-    //public void AddEventListenerOnTap(Action action)
-    //{
-    //    tapAction += action;
-    //}
-
-    //モグラ削除
     public void OnTap()
     {
         Destroy(gameObject);
-        //tapAction();
+    }
+
+    public void OnDestroy()
+    {
+        GameObject go = GameObject.Find("ScoreCunter");
+        ScoreCunter gm = go.GetComponent
+            (typeof(ScoreCunter)) as ScoreCunter;
+        gm.AddScore(1);
     }
 }
+

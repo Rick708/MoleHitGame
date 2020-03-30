@@ -11,15 +11,16 @@ public class TimeCunter : MonoBehaviour
     public float countdown = 5.0f;
     public Text timeText;
     private bool isPose = false;
-    public GameObject StartButton;
+    public GameObject GameSystem;
 
     public void OnStartButton()
     {
         StartTime();
+        countdown -= Time.deltaTime;
     }
+
     void StartTime()
     {
-        countdown -= Time.deltaTime;
         Debug.Log("OK");
         if (Input.GetMouseButtonDown(0))
         {
