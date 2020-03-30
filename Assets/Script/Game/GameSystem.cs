@@ -22,7 +22,6 @@ public class GameSystem : MonoBehaviour
     //ゲーム開始
     public void OnStartButton()
     {
-        Debug.Log("are");
         EncountMole();
         StartButton.SetActive(false);
     }
@@ -39,6 +38,12 @@ public class GameSystem : MonoBehaviour
             p.y = Random.Range(-1, 1);
             moleManager.transform.position = p;
         }
+    }
+
+    //SE
+    public void OnSEButton()
+    {
+        SESystem.instance.PlaySE(0);
     }
 
     //シーン移動

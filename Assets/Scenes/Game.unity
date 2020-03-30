@@ -780,6 +780,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1334572733
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2326212173346836448, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_Name
+      value: SESystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 505.05786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 505.5622
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17947054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836463, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08b1bed99629040ecb34f495d8d80442, type: 3}
 --- !u!1 &1789652828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1317,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 738861365}
+        m_MethodName: OnSEButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6352797177457082797
@@ -1368,6 +1448,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 738861365}
         m_MethodName: OnTitleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 738861365}
+        m_MethodName: OnSEButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1508,6 +1599,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 194860711}
         m_MethodName: OnStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 738861365}
+        m_MethodName: OnSEButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

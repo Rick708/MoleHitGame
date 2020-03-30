@@ -5,6 +5,7 @@ public class MoleManager : MonoBehaviour
 {
     public void OnTap()
     {
+        SESystem.instance.PlaySE(1);
         Destroy(gameObject);
     }
 
