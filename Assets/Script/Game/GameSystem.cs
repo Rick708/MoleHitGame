@@ -11,6 +11,7 @@ public class GameSystem : MonoBehaviour
     public GameObject HistoryButton;
     public GameObject StartButton;
     public GameObject TimeCunter;
+    public GameObject hitEffect;
 
     //初期設定
     void Start()
@@ -37,7 +38,15 @@ public class GameSystem : MonoBehaviour
             p.x = Random.Range(-1, 1);
             p.y = Random.Range(-1, 1);
             moleManager.transform.position = p;
+            moleManager.AddEventListenerOnTap(MoleTap);
         }
+    }
+
+
+    void MoleTap()
+    {
+        Debug.Log("いけた！！");
+        Instantiate(hitEffect);
     }
 
     //SE
