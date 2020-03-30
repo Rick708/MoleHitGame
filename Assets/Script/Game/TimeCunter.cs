@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//問題点：スタートボタンを押したら時間表示されるが減らない
+//    　　止める際にクリックで反応するがボタンを作りそれで反応させたい。
+
 public class TimeCunter : MonoBehaviour
 {
     public float countdown = 5.0f;
@@ -44,4 +47,5 @@ public class TimeCunter : MonoBehaviour
             timeText.text = "タイムアップ！！";
         }
     }
+
 }
