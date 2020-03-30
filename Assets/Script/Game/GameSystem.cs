@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameSystem : MonoBehaviour
 {
     public GameObject MolePrefab;
+    GameObject Mole;
     public GameObject TitleButton;
     public GameObject HistoryButton;
     public GameObject StartButton;
-    GameObject Mole;
+    public GameObject TimeCunter;
 
     //初期設定
     void Start()
@@ -21,9 +22,9 @@ public class GameSystem : MonoBehaviour
     //ゲーム開始
     public void OnStartButton()
     {
+        Debug.Log("are");
         EncountMole();
         StartButton.SetActive(false);
-
     }
 
     //モグラ出現
@@ -34,8 +35,8 @@ public class GameSystem : MonoBehaviour
             Mole = Instantiate(MolePrefab);
             MoleManager moleManager = Mole.GetComponent<MoleManager>();
             Vector3 p = moleManager.transform.position;
-            p.x = Random.Range(-2, 2);
-            p.y = Random.Range(-4, 4);
+            p.x = Random.Range(-1, 1);
+            p.y = Random.Range(-1, 1);
             moleManager.transform.position = p;
         }
     }

@@ -7,37 +7,17 @@ public class TimeCunter : MonoBehaviour
 {
     public float countdown = 5.0f;
     public Text timeText;
-    public Text Score;
     private bool isPose = false;
-    public GameObject StartButton;
-
-    int myScore = 0;
+    public GameObject GameSystem;
 
     public void OnStartButton()
     {
         StartTime();
+        countdown -= Time.deltaTime;
     }
-
-    private void Update()
-    {
-        Score.text = "score:" + myScore;
-    }
-
-    public void AddScore(int add)
-    {
-        if(countdown > 0)
-        {
-            myScore += add;
-        }
-    }
-
-
-
-
 
     void StartTime()
     {
-        countdown -= Time.deltaTime;
         Debug.Log("OK");
         if (Input.GetMouseButtonDown(0))
         {
