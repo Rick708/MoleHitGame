@@ -413,7 +413,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: f68b0530e3ecc45029416640074a7920, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -555,7 +555,9 @@ MonoBehaviour:
   TitleButton: {fileID: 6352797177570864873}
   HistoryButton: {fileID: 6352797177457082797}
   StartButton: {fileID: 6352797177621499129}
-  TimeCunter: {fileID: 0}
+  TimeCunter: {fileID: 194860710}
+  hitEffect: {fileID: 246413268473187455, guid: ec421fcb4655b41549ec1c8a77811b91,
+    type: 3}
 --- !u!114 &738861366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +690,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: bd4fb9d629fad4177938e85e35db9db5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
