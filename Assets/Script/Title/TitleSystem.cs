@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TitleSystem : MonoBehaviour
 {
+    public void OnSEButton()
+    {
+        SESystem.instance.PlaySE(0);
+    }
+
     public void OnGameButton()
     {
         SceneManager.LoadScene("Game");
