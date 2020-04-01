@@ -11,11 +11,15 @@ public class GameSystem : MonoBehaviour
     public GameObject HistoryButton;
     public GameObject StartButton;
     public GameObject TimeCunter;
-    
+    public GameObject ReStartButton;
+    public GameObject StopButton;
+    bool MoleStart;
 
     //初期設定
     void Start()
     {
+        StopButton.SetActive(false);
+        ReStartButton.SetActive(false);
         TitleButton.SetActive(false);
         HistoryButton.SetActive(false);
     }
@@ -23,12 +27,21 @@ public class GameSystem : MonoBehaviour
     //ゲーム開始
     public void OnStartButton()
     {
+        MoleStart = true;
         EncountMole();
         StartButton.SetActive(false);
+        StopButton.SetActive(true);
     }
 
     //モグラ出現
 
+    //private void Update()
+    //{
+    //    if (MoleStart == true)
+    //    {
+    //        EncountMole();
+    //    }
+    //}
     Vector3[] positions = {
         new Vector3(1, -2, 0),
         new Vector3(3, -2, 0),
@@ -46,18 +59,13 @@ public class GameSystem : MonoBehaviour
             MoleManager moleManager = Mole.GetComponent<MoleManager>();
             int r = Random.Range(0, positions.Length);
             moleManager.transform.position = positions[r];
-
         }
     }
 
 
-        void MoleTap()
-    {
-        Debug.Log("いけた！！");
-    }
-
     //時間切れでボタン表示する
     //そのまま点数を保存する
+
 
 
     //SE

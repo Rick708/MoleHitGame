@@ -12,15 +12,24 @@ public class TimeCunter : MonoBehaviour
     public Text timeText;
     private bool isPose = false;
     public GameObject GameSystem;
+    public GameObject StopButton;
+    public GameObject ReStartButton;
+    public GameObject TitleButton;
+    public GameObject HistoryButton;
 
     bool IsStart;
+    bool StopTime;
     //boolは二つの定義を持つもの
 
+    //計測開始
     public void OnStartButton()
     {
         IsStart = true;
+        StopTime = false;
+        //ボタンの表示の有無
     }
 
+    //計測がボタンを押したらに変更
     private void Update()
     {
         if (IsStart == true)
@@ -29,25 +38,41 @@ public class TimeCunter : MonoBehaviour
         }
     }
 
+    //時間を止める
+    public void TimeStopButton()
+    {
+        StopTime = true;
+        ReStartButton.SetActive(true);
+        StopButton.SetActive(false);
+    }
+
+    public void TimeStart()
+    {
+        StopTime = false;
+        ReStartButton.SetActive(false);
+        StopButton.SetActive(true);
+    }
+
+
     void StartTime()
     {
         countdown -= Time.deltaTime;
 
         //Time.deltaTimeはUpdateの中で書くことに意味があるワンフレーム事
 
-        if (Input.GetMouseButtonDown(0))
+        if (StopTime == false)
         {
-            if (isPose)
+            if (StopTime)
             {
-                isPose = false;
+                StopTime = true;
             }
             else
             {
-                isPose = true;
+                StopTime = false;
             }
         }
 
-        if (isPose)
+        if (StopTime)
         {
             timeText.text = "ポーズ中";
             return;
@@ -59,8 +84,12 @@ public class TimeCunter : MonoBehaviour
         {
             //タイムアップと同時にGameSystemに情報をとばず
             timeText.text = "タイムアップ！！";
+            StopButton.SetActive(false);
+            TitleButton.SetActive(true);
+            HistoryButton.SetActive(true);
+
         }
     }
 }
 
-//時間を動かしたい
+//時間を止める、ボタン定義してbool使ったif分で行こうかと思う。
