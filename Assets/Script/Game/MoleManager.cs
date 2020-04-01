@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class MoleManager : MonoBehaviour
 {
-    Action tapAction;
+    //Action tapAction;
     public GameObject hitEffect;
 
-    public void AddEventListenerOnTap(Action action)
-    {
-        tapAction += action;
-    }
+    //public void AddEventListenerOnTap(Action action)
+    //{
+    //    tapAction += action;
+    //}
 
     public void OnTap()
     {
         SESystem.instance.PlaySE(1);
         Destroy(gameObject);
-        tapAction();
+        //tapAction();
     }
 
     public void OnDestroy()
