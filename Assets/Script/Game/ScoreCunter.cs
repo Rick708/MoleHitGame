@@ -18,12 +18,8 @@ public class ScoreCunter : MonoBehaviour
 
     public void AddScore(int add)
     {
-        //if (countdown = 0)
-        //{
             MyScore += add;
-        //}
     }
-
 }
 
 //時間は０の時は点数が入らない様にしたい
