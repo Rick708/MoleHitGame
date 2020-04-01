@@ -4,7 +4,7 @@ using UnityEngine;
 public class MoleManager : MonoBehaviour
 {
     Action tapAction;
-
+    public GameObject hitEffect;
 
     public void AddEventListenerOnTap(Action action)
     {
@@ -24,6 +24,7 @@ public class MoleManager : MonoBehaviour
         ScoreCunter gm = go.GetComponent
             (typeof(ScoreCunter)) as ScoreCunter;
         gm.AddScore(1);
+        Instantiate(hitEffect);
     }
 }
 
