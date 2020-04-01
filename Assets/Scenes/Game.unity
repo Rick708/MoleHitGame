@@ -556,8 +556,6 @@ MonoBehaviour:
   HistoryButton: {fileID: 6352797177457082797}
   StartButton: {fileID: 6352797177621499129}
   TimeCunter: {fileID: 194860710}
-  hitEffect: {fileID: 246413268473187455, guid: ec421fcb4655b41549ec1c8a77811b91,
-    type: 3}
 --- !u!114 &738861366
 MonoBehaviour:
   m_ObjectHideFlags: 0
