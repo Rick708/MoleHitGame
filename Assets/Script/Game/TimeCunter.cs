@@ -8,20 +8,33 @@ using UnityEngine.UI;
 
 public class TimeCunter : MonoBehaviour
 {
-    public float countdown = 5.0f;
+    public float countdown = 0f;
     public Text timeText;
     private bool isPose = false;
     public GameObject GameSystem;
 
+    bool IsStart;
+    //boolは二つの定義を持つもの
+
     public void OnStartButton()
     {
-        StartTime();
-        countdown -= Time.deltaTime;
+        IsStart = true;
+    }
+
+    private void Update()
+    {
+        if (IsStart == true)
+        {
+            StartTime();
+        }
     }
 
     void StartTime()
     {
-        Debug.Log("OK");
+        countdown -= Time.deltaTime;
+
+        //Time.deltaTimeはUpdateの中で書くことに意味があるワンフレーム事
+
         if (Input.GetMouseButtonDown(0))
         {
             if (isPose)
@@ -44,8 +57,10 @@ public class TimeCunter : MonoBehaviour
 
         if (countdown <= 0)
         {
+            //タイムアップと同時にGameSystemに情報をとばず
             timeText.text = "タイムアップ！！";
         }
     }
-
 }
+
+//時間を動かしたい
