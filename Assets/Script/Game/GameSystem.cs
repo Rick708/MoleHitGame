@@ -13,6 +13,7 @@ public class GameSystem : MonoBehaviour
     public GameObject TimeCunter;
     public GameObject ReStartButton;
     public GameObject StopButton;
+
     bool MoleStart;
 
     //初期設定
@@ -34,7 +35,7 @@ public class GameSystem : MonoBehaviour
     }
 
     //モグラ出現
-
+    //これだと永遠出るからコルーチン使って１秒に１回に変える。その後止める
     //private void Update()
     //{
     //    if (MoleStart == true)
@@ -44,8 +45,8 @@ public class GameSystem : MonoBehaviour
     //}
     Vector3[] positions = {
         new Vector3(1, -2, 0),
-        new Vector3(3, -2, 0),
-        new Vector3(-3, -2, 0),
+        //new Vector3(3, -2, 0),
+        //new Vector3(-3, -2, 0),
         new Vector3(5, -2, 0),
         new Vector3(-5, -2, 0),
     };
@@ -62,9 +63,24 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-
     //時間切れでボタン表示する
-    //そのまま点数を保存する
+    public void GameStop()
+    {
+        Debug.Log("owari");
+        StopButton.SetActive(false);
+        TitleButton.SetActive(true);
+        HistoryButton.SetActive(true);
+        //点数保存
+
+
+        //もぐら削除 タグ機能使ってみた。
+        GameObject[] objects;
+        objects = GameObject.FindGameObjectsWithTag("Mole");
+        for (int i = 0; i < objects.Length; ++i)
+        {
+            Destroy(objects[i].gameObject);
+        }
+    }
 
 
 

@@ -247,6 +247,7 @@ MonoBehaviour:
   ReStartButton: {fileID: 1572304433}
   TitleButton: {fileID: 6352797177570864873}
   HistoryButton: {fileID: 6352797177457082797}
+  finish: {fileID: 738861364}
 --- !u!4 &194860712
 Transform:
   m_ObjectHideFlags: 0
