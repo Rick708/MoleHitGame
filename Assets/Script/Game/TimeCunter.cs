@@ -8,88 +8,118 @@ using UnityEngine.UI;
 
 public class TimeCunter : MonoBehaviour
 {
-    public float countdown = 0f;
+    public float countdown = 5f;
     public Text timeText;
     private bool isPose = false;
     public GameObject GameSystem;
     public GameObject StopButton;
     public GameObject ReStartButton;
-    public GameObject TitleButton;
-    public GameObject HistoryButton;
 
-    bool IsStart;
+    bool StartTime;
     bool StopTime;
     //boolは二つの定義を持つもの
 
     //計測開始
     public void OnStartButton()
     {
-        IsStart = true;
+        StartTime = true;
         StopTime = false;
         //ボタンの表示の有無
     }
 
-    //計測がボタンを押したらに変更
+    //計測継続
     private void Update()
     {
-        if (IsStart == true)
+        if (StartTime == true)
         {
-            StartTime();
+            CountDown();
         }
     }
 
     //時間を止める
+    //ここは処理を短縮化できる
+    //例；AにTrueかFalseを作りボタンで書き換えるそれをIF文にして処理する
+    //カウントダウンの中も同じ様に処理できるはず
+    //あとでする
     public void TimeStopButton()
     {
         StopTime = true;
         ReStartButton.SetActive(true);
         StopButton.SetActive(false);
     }
-
+    //時間を進める
     public void TimeStart()
     {
         StopTime = false;
         ReStartButton.SetActive(false);
         StopButton.SetActive(true);
+        Time.timeScale = 1f;
     }
 
-
-    void StartTime()
+    //計測中
+    void CountDown()
     {
-        countdown -= Time.deltaTime;
-
-        //Time.deltaTimeはUpdateの中で書くことに意味があるワンフレーム事
-
-        if (StopTime == false)
-        {
-            if (StopTime)
-            {
-                StopTime = true;
-            }
-            else
-            {
-                StopTime = false;
-            }
-        }
-
-        if (StopTime)
-        {
-            timeText.text = "ポーズ中";
-            return;
-        }
-
+        //テキスト表示
         timeText.text = "残り時間" + countdown.ToString("f1") + "秒";
 
-        if (countdown <= 0)
+        if (StopTime == true)
         {
-            //タイムアップと同時にGameSystemに情報をとばず
-            timeText.text = "タイムアップ！！";
-            StopButton.SetActive(false);
-            TitleButton.SetActive(true);
-            HistoryButton.SetActive(true);
-
+            timeText.text = "ポーズ中";
+            Time.timeScale = 0;
+            return;
+        }
+        else　if(countdown <= 0)
+        {
+            TimeUp();
+        }
+        else
+        {
+            countdown -= Time.deltaTime;
         }
     }
+
+    //計測終わり
+     public void TimeUp()
+    {
+        //タイムアップと同時にGameSystemに情報をとばず
+        enabled = false; //これあってんの？uodateを止めたかった。
+        timeText.text = "タイムアップ！！";
+        GameSystem timestop = GameSystem.GetComponent<GameSystem>();
+        timestop.GameStop();        
+    }
+
+
+    //countdown -= Time.deltaTime;
+
+    //Time.deltaTimeはUpdateの中で書くことに意味がある.
+    //ワンフレーム事に処理されるUpdateを時間に直してくれる
+    //if (StopTime == false)
+    //{
+    //    if (StopTime　== true)
+    //    {
+    //        timeText.text = "ポーズ中";
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        StopTime = false;
+    ////    }
+    //}
+    //if (StopTime)
+    //{
+    //    timeText.text = "ポーズ中";
+    //    return;
+    //}
+
+    //テキスト表示
+    //timeText.text = "残り時間" + countdown.ToString("f1") + "秒";
+
+    //計測が終わったら
+    //if (countdown <= 0)
+    //{
+    //    TimeUp();
+    //}
+
 }
 
 //時間を止める、ボタン定義してbool使ったif分で行こうかと思う。
