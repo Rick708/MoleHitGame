@@ -28,6 +28,7 @@ public class GameSystem : MonoBehaviour
     //ゲーム開始
     public void OnStartButton()
     {
+        Destroy(this.gameObject);
         MoleStart = true;
         EncountMole();
         StartButton.SetActive(false);
@@ -44,11 +45,11 @@ public class GameSystem : MonoBehaviour
     //    }
     //}
     Vector3[] positions = {
-        new Vector3(1, -2, 0),
+        new Vector3(1, 0, 0),
         //new Vector3(3, -2, 0),
         //new Vector3(-3, -2, 0),
-        new Vector3(5, -2, 0),
-        new Vector3(-5, -2, 0),
+        new Vector3(5, 0, 0),
+        new Vector3(-5, 0, 0),
     };
 
 
@@ -81,8 +82,6 @@ public class GameSystem : MonoBehaviour
             Destroy(objects[i].gameObject);
         }
     }
-
-
 
     //SE
     public void OnSEButton()

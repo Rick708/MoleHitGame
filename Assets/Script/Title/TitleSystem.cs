@@ -13,6 +13,7 @@ public class TitleSystem : MonoBehaviour
     public void OnGameButton()
     {
         SceneManager.LoadScene("Game");
+
     }
     public void OnHistoryButton()
     {
