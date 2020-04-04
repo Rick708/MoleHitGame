@@ -245,9 +245,6 @@ MonoBehaviour:
   GameSystem: {fileID: 738861364}
   StopButton: {fileID: 1530812869}
   ReStartButton: {fileID: 1572304433}
-  TitleButton: {fileID: 6352797177570864873}
-  HistoryButton: {fileID: 6352797177457082797}
-  finish: {fileID: 738861364}
 --- !u!4 &194860712
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +562,8 @@ MonoBehaviour:
   TimeCunter: {fileID: 194860710}
   ReStartButton: {fileID: 1572304433}
   StopButton: {fileID: 1530812869}
+  DialogPrefab: {fileID: 6660237048330458245, guid: 0111b0baa2a89434e9164c5232a5b515,
+    type: 3}
 --- !u!114 &738861366
 MonoBehaviour:
   m_ObjectHideFlags: 0
