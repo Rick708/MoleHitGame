@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class HistorySystem : MonoBehaviour
 {
+
+
     public void OnSEButton()
     {
         SESystem.instance.PlaySE(0);

@@ -13,7 +13,7 @@ public class GameSystem : MonoBehaviour
     public GameObject TimeCunter;
     public GameObject ReStartButton;
     public GameObject StopButton;
-
+    public GameObject scoreCunter;
     bool MoleStart;
 
     //初期設定
@@ -28,7 +28,6 @@ public class GameSystem : MonoBehaviour
     //ゲーム開始
     public void OnStartButton()
     {
-        Destroy(this.gameObject);
         MoleStart = true;
         EncountMole();
         StartButton.SetActive(false);
@@ -71,9 +70,15 @@ public class GameSystem : MonoBehaviour
         StopButton.SetActive(false);
         TitleButton.SetActive(true);
         HistoryButton.SetActive(true);
-        //点数保存
-
-
+        ////点数保存
+        //if (PlayerPrefs.HasKey("SCORE"))
+        //{
+        //    Debug.Log("OK");
+        //}
+        //else
+        //{
+        //    Debug.Log("NO");
+        //}
         //もぐら削除 タグ機能使ってみた。
         GameObject[] objects;
         objects = GameObject.FindGameObjectsWithTag("Mole");

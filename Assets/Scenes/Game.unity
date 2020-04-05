@@ -245,6 +245,7 @@ MonoBehaviour:
   GameSystem: {fileID: 738861364}
   StopButton: {fileID: 1530812869}
   ReStartButton: {fileID: 1572304433}
+  ScoreCunter: {fileID: 1789652828}
 --- !u!4 &194860712
 Transform:
   m_ObjectHideFlags: 0
@@ -562,8 +563,7 @@ MonoBehaviour:
   TimeCunter: {fileID: 194860710}
   ReStartButton: {fileID: 1572304433}
   StopButton: {fileID: 1530812869}
-  DialogPrefab: {fileID: 6660237048330458245, guid: 0111b0baa2a89434e9164c5232a5b515,
-    type: 3}
+  scoreCunter: {fileID: 1789652828}
 --- !u!114 &738861366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326212173346836462, guid: 08b1bed99629040ecb34f495d8d80442,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b1bed99629040ecb34f495d8d80442, type: 3}
@@ -2205,8 +2210,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 194860710}
-        m_MethodName: 
+      - m_Target: {fileID: 738861365}
+        m_MethodName: OnSEButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
