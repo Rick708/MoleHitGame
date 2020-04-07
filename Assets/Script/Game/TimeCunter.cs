@@ -14,6 +14,7 @@ public class TimeCunter : MonoBehaviour
     public GameObject GameSystem;
     public GameObject StopButton;
     public GameObject ReStartButton;
+    public GameObject ScoreCunter;
 
     bool StartTime;
     bool StopTime;
@@ -84,8 +85,11 @@ public class TimeCunter : MonoBehaviour
         //タイムアップと同時にGameSystemに情報をとばず
         enabled = false; //これあってんの？uodateを止めたかった。
         timeText.text = "タイムアップ！！";
-        GameSystem timestop = GameSystem.GetComponent<GameSystem>();
-        timestop.GameStop();        
+        GameSystem Gamestop = GameSystem.GetComponent<GameSystem>();
+        Gamestop.GameStop();
+        ScoreCunter Scorestop = ScoreCunter.GetComponent<ScoreCunter>();
+        Scorestop.ScoreStop();
+
     }
 
 
