@@ -22,7 +22,7 @@ public class MoleManager : MonoBehaviour
         ScoreCunter gm = go.GetComponent
             (typeof(ScoreCunter)) as ScoreCunter;
         gm.AddScore(1);
-        Instantiate(hitEffect);
+        Instantiate(hitEffect, transform.position, transform.rotation);
     }
 
     //これいる？

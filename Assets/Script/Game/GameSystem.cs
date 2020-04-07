@@ -15,10 +15,14 @@ public class GameSystem : MonoBehaviour
     public GameObject StopButton;
     public GameObject scoreCunter;
     bool MoleStart;
+    public GameObject OneMoreStartButton;
+    float MoleNextTime;
 
+    public float span = 3f;
     //初期設定
     void Start()
     {
+        OneMoreStartButton.SetActive(false);
         StopButton.SetActive(false);
         ReStartButton.SetActive(false);
         TitleButton.SetActive(false);
@@ -32,41 +36,51 @@ public class GameSystem : MonoBehaviour
         EncountMole();
         StartButton.SetActive(false);
         StopButton.SetActive(true);
+        InvokeRepeating("EncountMole", span, span);
     }
 
     //モグラ出現
     //これだと永遠出るからコルーチン使って１秒に１回に変える。その後止める
-    //private void Update()
+    //void Update()
     //{
+    //    if (numberOfMole >= maxNumOfMole)
+    //    {
+    //        return;
+    //    }
     //    if (MoleStart == true)
     //    {
+
     //        EncountMole();
+
     //    }
     //}
     Vector3[] positions = {
-        new Vector3(1, 0, 0),
-        //new Vector3(3, -2, 0),
-        //new Vector3(-3, -2, 0),
-        new Vector3(5, 0, 0),
-        new Vector3(-5, 0, 0),
+        new Vector3(0, -2, 0),
+        new Vector3(4, -2, 0),
+        new Vector3(-4, -2, 0),
     };
-
 
     void EncountMole()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            Mole = Instantiate(MolePrefab);
-            MoleManager moleManager = Mole.GetComponent<MoleManager>();
-            int r = Random.Range(0, positions.Length);
-            moleManager.transform.position = positions[r];
-        }
+        //while (true)
+        //{
+        //    yield return new WaitForSeconds(span);
+        //    Debug.LogFormat("{0}秒経過", span);
+            for (int i = 0; i < 1; i++)
+            {
+                Mole = Instantiate(MolePrefab);
+                MoleManager moleManager = Mole.GetComponent<MoleManager>();
+                int r = Random.Range(0, positions.Length);
+                moleManager.transform.position = positions[r];
+            }
+        //}
     }
 
     //時間切れでボタン表示する
     public void GameStop()
     {
-        Debug.Log("owari");
+        OneMoreStartButton.SetActive(true);
+        CancelInvoke();
         StopButton.SetActive(false);
         TitleButton.SetActive(true);
         HistoryButton.SetActive(true);
@@ -86,6 +100,12 @@ public class GameSystem : MonoBehaviour
         {
             Destroy(objects[i].gameObject);
         }
+    }
+
+    //もう一度ゲームで遊ぶ
+    public void OneMoreStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     //SE
