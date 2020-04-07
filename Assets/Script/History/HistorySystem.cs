@@ -10,18 +10,31 @@ public class HistorySystem : MonoBehaviour
 {
     // テキスト等を取得して
     public Text[] scoreTexts;
+    public GameObject RankingButton;
+    public GameObject ListButton;
+    bool SortChange;
 
     List<int> scoreList = new List<int>();
 
     void Start()
     {
         LoadScoreDate();
-
-        //scoreList.Sort();
-        scoreList.Reverse();
+        SortChange = true;
         ShowScoreList(scoreList);
     }
 
+    public void ChangeViewRanking()
+    {
+        SortChange = false;
+        ShowScoreList(scoreList);
+    }
+
+    public void ChangeViewlist()
+    {
+        SortChange = true;
+        ShowScoreList(scoreList);
+
+    }
     // セーブデータからリストを生成
     void LoadScoreDate()
     {
@@ -38,20 +51,23 @@ public class HistorySystem : MonoBehaviour
     }
 
     void ShowScoreList(List<int> list)
-    {
-        
+    {      
         for (int i = 0; i < scoreTexts.Length; i++)
         {
-            //list.Sort();//ランキング形式になる。
             if (list.Count <= i)
             {
                 scoreTexts[i].text = "--";
             }
-            else
+            else if(SortChange == true)
             {
-                //scoreList.AddRange(scoreList);
+                scoreList.Reverse();
                 scoreTexts[i].text =　"お疲れ様でした！！あなたは" + list[i].ToString() + "点だったよ♫";
-                //scoreList.Sort((a, b) => b - a);
+            }
+            else 
+            {
+                scoreList.Sort();
+                scoreList.Reverse();
+                scoreTexts[i].text =  "位は" + list[i].ToString() + "点でした！！";
             }
         }
     }
@@ -65,7 +81,7 @@ public class HistorySystem : MonoBehaviour
 
     public void OnGameButton()
     {
-        SceneManager.LoadScene("Game");// 指定したシーンに移動
+        SceneManager.LoadScene("Game");
     }
     public void OnTitleButton()
     {
