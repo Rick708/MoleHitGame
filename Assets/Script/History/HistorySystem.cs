@@ -5,10 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // テキストを取得して、点数を表示
-//（Naoyaアイデア） ScoreCounterのScoreからGetComponentでListを取得して、for文で繰り返し表示
-
-// しまづアドバイス：シーンが違うので、オブジェクトは破壊される。ただし、staticは残る
-// 
+// ScoreCounterのScoreからGetComponentでListを取得して、for文で繰り返し表示
 public class HistorySystem : MonoBehaviour
 {
     // テキスト等を取得して
@@ -20,7 +17,7 @@ public class HistorySystem : MonoBehaviour
     {
         LoadScoreDate();
 
-        scoreList.Sort();
+        //scoreList.Sort();
         scoreList.Reverse();
         ShowScoreList(scoreList);
     }
@@ -28,12 +25,15 @@ public class HistorySystem : MonoBehaviour
     // セーブデータからリストを生成
     void LoadScoreDate()
     {
+        
         int playCount = PlayerPrefs.GetInt("PLAY_COUNT", -1);// データの個数-1
-
+        //listnum.Add(playCount);
+        
         for (int i = 0; i <= playCount; i++)
         {
             int myScore = PlayerPrefs.GetInt("SCORE" + i, 0);
             scoreList.Add(myScore);
+            
         }
     }
 
@@ -42,13 +42,16 @@ public class HistorySystem : MonoBehaviour
         
         for (int i = 0; i < scoreTexts.Length; i++)
         {
+            //list.Sort();//ランキング形式になる。
             if (list.Count <= i)
             {
-                scoreTexts[i].text = "-";
+                scoreTexts[i].text = "--";
             }
             else
             {
-                scoreTexts[i].text = list[i].ToString();
+                //scoreList.AddRange(scoreList);
+                scoreTexts[i].text =　"お疲れ様でした！！あなたは" + list[i].ToString() + "点だったよ♫";
+                //scoreList.Sort((a, b) => b - a);
             }
         }
     }
