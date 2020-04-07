@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6922ab03fa94463a1d6efe8cd03d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 10
+  countdown: 12
   timeText: {fileID: 1790943481}
   GameSystem: {fileID: 738861364}
   StopButton: {fileID: 1530812869}
