@@ -151,5 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6709135b1e1d04c148561310521ff320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 246413268473187455, guid: ec421fcb4655b41549ec1c8a77811b91,
+  hitEffect: {fileID: 8945201593407513606, guid: d77898a5bb3e444ea972527ca9cf7fb1,
     type: 3}
+  StopButton: {fileID: 0}
+  ReStartButton: {fileID: 0}
+  TimeCunter: {fileID: 0}

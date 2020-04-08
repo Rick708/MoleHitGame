@@ -4,18 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// テキストを取得して、点数を表示
-// ScoreCounterのScoreからGetComponentでListを取得して、for文で繰り返し表示
 public class HistorySystem : MonoBehaviour
 {
-    // テキスト等を取得して
     public Text[] scoreTexts;
     public GameObject RankingButton;
     public GameObject ListButton;
     bool SortChange;
-
     List<int> scoreList = new List<int>();
 
+    //初期
     void Start()
     {
         LoadScoreDate();
@@ -23,25 +20,28 @@ public class HistorySystem : MonoBehaviour
         ShowScoreList(scoreList);
     }
 
+    //ランキング表示
     public void ChangeViewRanking()
     {
         SortChange = false;
         ShowScoreList(scoreList);
     }
 
+    //履歴表示
     public void ChangeViewlist()
     {
         SortChange = true;
         ShowScoreList(scoreList);
-
     }
+
     // セーブデータからリストを生成
     void LoadScoreDate()
     {
-        
-        int playCount = PlayerPrefs.GetInt("PLAY_COUNT", -1);// データの個数-1
-        //listnum.Add(playCount);
-        
+        //string datetimeString = PlayerPrefs.GetString("key");
+        //System.DateTime datetime = System.DateTime.FromBinary(System.Convert.ToInt64(datetimeString));
+
+        int playCount = PlayerPrefs.GetInt("PLAY_COUNT", -1);
+
         for (int i = 0; i <= playCount; i++)
         {
             int myScore = PlayerPrefs.GetInt("SCORE" + i, 0);
@@ -50,6 +50,7 @@ public class HistorySystem : MonoBehaviour
         }
     }
 
+    //テキスト表示
     void ShowScoreList(List<int> list)
     {      
         for (int i = 0; i < scoreTexts.Length; i++)
@@ -61,24 +62,28 @@ public class HistorySystem : MonoBehaviour
             else if(SortChange == true)
             {
                 scoreList.Reverse();
-                scoreTexts[i].text =　"お疲れ様でした！！あなたは" + list[i].ToString() + "点だったよ♫";
+                //scoreTexts[i].text = System.ToInt() + "あなたは" + list[i].ToString() + "点だったよ♫";
             }
             else 
             {
                 scoreList.Sort();
                 scoreList.Reverse();
+                //Rank = higher.Count(scoreList) + 1;
+                //scoreList.Add(Rank);
+
                 scoreTexts[i].text =  "位は" + list[i].ToString() + "点でした！！";
             }
         }
     }
 
 
-
+    //SE
     public void OnSEButton()
     {
         SESystem.instance.PlaySE(0);
     }
 
+    //Scene移動
     public void OnGameButton()
     {
         SceneManager.LoadScene("Game");

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundSystem : MonoBehaviour
 {
+    //BGM関係
     private void Awake()
     {
         int numMusicPlayers = FindObjectsOfType<SoundSystem>().Length;
