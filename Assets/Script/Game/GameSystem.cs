@@ -14,9 +14,10 @@ public class GameSystem : MonoBehaviour
     public GameObject ReStartButton;
     public GameObject StopButton;
     public GameObject scoreCunter;
-    bool MoleStart;
+    //bool MoleStart;
     public GameObject OneMoreStartButton;
-    float MoleNextTime;
+    //float MoleNextTime;
+
 
     public float span = 3f;
     //初期設定
@@ -32,40 +33,23 @@ public class GameSystem : MonoBehaviour
     //ゲーム開始
     public void OnStartButton()
     {
-        MoleStart = true;
+        //MoleStart = true;
         EncountMole();
         StartButton.SetActive(false);
         StopButton.SetActive(true);
         InvokeRepeating("EncountMole", span, span);
     }
 
-    //モグラ出現
-    //これだと永遠出るからコルーチン使って１秒に１回に変える。その後止める
-    //void Update()
-    //{
-    //    if (numberOfMole >= maxNumOfMole)
-    //    {
-    //        return;
-    //    }
-    //    if (MoleStart == true)
-    //    {
-
-    //        EncountMole();
-
-    //    }
-    //}
+    //モグラ出現場所指定
     Vector3[] positions = {
         new Vector3(0, -2, 0),
         new Vector3(4, -2, 0),
         new Vector3(-4, -2, 0),
     };
 
+    //モグラ生成
     void EncountMole()
     {
-        //while (true)
-        //{
-        //    yield return new WaitForSeconds(span);
-        //    Debug.LogFormat("{0}秒経過", span);
             for (int i = 0; i < 1; i++)
             {
                 Mole = Instantiate(MolePrefab);
@@ -73,10 +57,9 @@ public class GameSystem : MonoBehaviour
                 int r = Random.Range(0, positions.Length);
                 moleManager.transform.position = positions[r];
             }
-        //}
     }
 
-    //時間切れでボタン表示する
+    //時間切れ
     public void GameStop()
     {
         OneMoreStartButton.SetActive(true);
@@ -84,16 +67,6 @@ public class GameSystem : MonoBehaviour
         StopButton.SetActive(false);
         TitleButton.SetActive(true);
         HistoryButton.SetActive(true);
-        ////点数保存
-        //if (PlayerPrefs.HasKey("SCORE"))
-        //{
-        //    Debug.Log("OK");
-        //}
-        //else
-        //{
-        //    Debug.Log("NO");
-        //}
-        //もぐら削除 タグ機能使ってみた。
         GameObject[] objects;
         objects = GameObject.FindGameObjectsWithTag("Mole");
         for (int i = 0; i < objects.Length; ++i)

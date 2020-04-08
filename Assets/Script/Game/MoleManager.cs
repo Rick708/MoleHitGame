@@ -3,36 +3,32 @@ using UnityEngine;
 
 public class MoleManager : MonoBehaviour
 {
-    //Action tapAction;
     public GameObject hitEffect;
+    public GameObject TimeCunter;
+    TimeCunter timeCunter;
 
-    //public void AddEventListenerOnTap(Action action)
-    //{
-    //    tapAction += action;
-    //}
 
-    //モグラをタップすると起こるアクション
-    //消える、点数が入る、エフェクト、SE、
-    public void OnTap()
+    private void Start()
     {
-        SESystem.instance.PlaySE(1);
-        Destroy(gameObject);
-        //tapAction();
-        GameObject go = GameObject.Find("ScoreCunter");
-        ScoreCunter gm = go.GetComponent
-            (typeof(ScoreCunter)) as ScoreCunter;
-        gm.AddScore(1);
-        Instantiate(hitEffect, transform.position, transform.rotation);
+        timeCunter = GameObject.Find("TimeCunter").GetComponent<TimeCunter>();
     }
 
-    //これいる？
-    //public void OnDestroy()
-    //{
-    //    GameObject go = GameObject.Find("ScoreCunter");
-    //    ScoreCunter gm = go.GetComponent
-    //        (typeof(ScoreCunter)) as ScoreCunter;
-    //    gm.AddScore(1);
-    //    Instantiate(hitEffect);
-    //}
+
+        //モグラ情報と点数
+        public void OnTap()
+       {
+        TimeCunter timecounter = TimeCunter.GetComponent<TimeCunter>();
+
+        if (timeCunter.StopTime == false)
+        {
+            SESystem.instance.PlaySE(1);
+            Destroy(gameObject);
+            GameObject go = GameObject.Find("ScoreCunter");
+            ScoreCunter gm = go.GetComponent
+                (typeof(ScoreCunter)) as ScoreCunter;
+            gm.AddScore(1);
+            Instantiate(hitEffect, transform.position, transform.rotation);
+        }
+    }
 }
 

@@ -7,6 +7,7 @@ public class SESystem : MonoBehaviour
 
     public static SESystem instance;
 
+    //SE関係
     private void Awake()
     {
         if (instance == null)
@@ -22,10 +23,6 @@ public class SESystem : MonoBehaviour
 
     public AudioSource audioSourceSE;
     public AudioClip[] audioClipsSE;
-
-    void Start()
-    {
-    }
     public void PlaySE(int index)
     {
         audioSourceSE.PlayOneShot(audioClipsSE[index]);
