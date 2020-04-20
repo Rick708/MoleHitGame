@@ -240,14 +240,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6922ab03fa94463a1d6efe8cd03d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 12
+  MolePrefab: {fileID: 5829247591877686564, guid: 01dd9bd99f66d43639511214f3c1206c,
+    type: 3}
+  countdown: 4
   timeText: {fileID: 1790943481}
   GameSystem: {fileID: 738861364}
   StopButton: {fileID: 1530812869}
   ReStartButton: {fileID: 1572304433}
   ScoreCunter: {fileID: 1789652828}
-  MolePrefab: {fileID: 5829247591877686564, guid: 01dd9bd99f66d43639511214f3c1206c,
-    type: 3}
+  StopTime: 0
 --- !u!4 &194860712
 Transform:
   m_ObjectHideFlags: 0

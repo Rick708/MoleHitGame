@@ -14,7 +14,6 @@ public class ScoreCunter : MonoBehaviour
     //初期
     private void Start()
     {
-        //ClockText = GetComponentInChildren<Text>();
         playCount = PlayerPrefs.GetInt("PLAY_COUNT", -1);
         playCount++;
     }
@@ -35,8 +34,9 @@ public class ScoreCunter : MonoBehaviour
     public void ScoreStop()
     {
         System.DateTime now = System.DateTime.Now;
-        PlayerPrefs.SetString("key", now.ToBinary().ToString());
+        PlayerPrefs.SetString("key", now.ToLongTimeString());
         PlayerPrefs.SetInt("PLAY_COUNT", playCount);
-        PlayerPrefs.SetInt("SCORE"+ playCount, MyScore);
+        PlayerPrefs.SetInt("SCORE" + playCount, MyScore);
+        PlayerPrefs.SetString("TimeData" + playCount, now.ToLongTimeString());
     }
 }
