@@ -10,13 +10,15 @@ public class HistorySystem : MonoBehaviour
     public GameObject RankingButton;
     public GameObject ListButton;
     bool SortChange;
-    List<int> scoreList = new List<int>();
+
+    List<ScoreData> scoreList = new List<ScoreData>();
 
     //初期
     void Start()
     {
         LoadScoreDate();
         SortChange = true;
+        scoreList.Reverse();
         ShowScoreList(scoreList);
     }
 
@@ -24,6 +26,8 @@ public class HistorySystem : MonoBehaviour
     public void ChangeViewRanking()
     {
         SortChange = false;
+        scoreList.Sort((a, b) => a.score - b.score);
+        scoreList.Reverse();
         ShowScoreList(scoreList);
     }
 
@@ -31,27 +35,25 @@ public class HistorySystem : MonoBehaviour
     public void ChangeViewlist()
     {
         SortChange = true;
+        scoreList.Sort((a, b) => a.score - b.score);
+        scoreList.Reverse();
         ShowScoreList(scoreList);
     }
 
     // セーブデータからリストを生成
     void LoadScoreDate()
     {
-        //string datetimeString = PlayerPrefs.GetString("key");
-        //System.DateTime datetime = System.DateTime.FromBinary(System.Convert.ToInt64(datetimeString));
-
         int playCount = PlayerPrefs.GetInt("PLAY_COUNT", -1);
-
         for (int i = 0; i <= playCount; i++)
         {
             int myScore = PlayerPrefs.GetInt("SCORE" + i, 0);
-            scoreList.Add(myScore);
-            
+            string timeData = PlayerPrefs.GetString("TimeData" + i);
+            scoreList.Add(new ScoreData(myScore, timeData));
         }
     }
 
     //テキスト表示
-    void ShowScoreList(List<int> list)
+    void ShowScoreList(List<ScoreData> list)
     {      
         for (int i = 0; i < scoreTexts.Length; i++)
         {
@@ -61,17 +63,12 @@ public class HistorySystem : MonoBehaviour
             }
             else if(SortChange == true)
             {
-                scoreList.Reverse();
-                //scoreTexts[i].text = System.ToInt() + "あなたは" + list[i].ToString() + "点だったよ♫";
+                scoreTexts[i].text = "日時:" + list[i].timeData + "、君は" + list[i].score.ToString() + "点だったよ♫";
             }
             else 
             {
-                scoreList.Sort();
-                scoreList.Reverse();
-                //Rank = higher.Count(scoreList) + 1;
-                //scoreList.Add(Rank);
-
-                scoreTexts[i].text =  "位は" + list[i].ToString() + "点でした！！";
+                int Rank = i + 1 ;
+                scoreTexts[i].text =  Rank + "位は" + list[i].score.ToString() + "点でした！！";
             }
         }
     }
@@ -91,5 +88,16 @@ public class HistorySystem : MonoBehaviour
     public void OnTitleButton()
     {
         SceneManager.LoadScene("Title");
+    }
+}
+
+public class ScoreData
+{
+    public int score;
+    public string timeData;
+    public ScoreData(int score, string timeData)
+    {
+        this.score = score;
+        this.timeData = timeData;
     }
 }

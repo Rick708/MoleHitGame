@@ -14,11 +14,9 @@ public class MoleManager : MonoBehaviour
     }
 
 
-        //モグラ情報と点数
-        public void OnTap()
-       {
-        TimeCunter timecounter = TimeCunter.GetComponent<TimeCunter>();
-
+    //モグラ情報と点数
+    public void OnTap()
+    {
         if (timeCunter.StopTime == false)
         {
             SESystem.instance.PlaySE(1);

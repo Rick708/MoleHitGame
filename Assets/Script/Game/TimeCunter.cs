@@ -33,10 +33,6 @@ public class TimeCunter : MonoBehaviour
     }
 
     //時間を止める
-    //ここは処理を短縮化できるんじゃね？
-    //例；AにTrueかFalseを作りボタンで書き換えるそれをIF文にして処理する
-    //カウントダウンの中も同じ様に処理できるはず
-    //あとでする
     public void TimeStopButton()
     {
         StopTime = true;
@@ -46,7 +42,8 @@ public class TimeCunter : MonoBehaviour
         BoxCollider component = this.gameObject.GetComponent<BoxCollider>();
         Destroy(component);
     }
-    //時間を進める
+
+    //止めた時間を進める
     public void TimeStart()
     {
         StopTime = false;
