@@ -35,8 +35,8 @@ public class HistorySystem : MonoBehaviour
     public void ChangeViewlist()
     {
         SortChange = true;
-        scoreList.Sort((a, b) => a.score - b.score);
-        scoreList.Reverse();
+        scoreList.Sort((a, b) => b.playCount - a.playCount);
+        //scoreList.Reverse();
         ShowScoreList(scoreList);
     }
 
@@ -48,7 +48,7 @@ public class HistorySystem : MonoBehaviour
         {
             int myScore = PlayerPrefs.GetInt("SCORE" + i, 0);
             string timeData = PlayerPrefs.GetString("TimeData" + i);
-            scoreList.Add(new ScoreData(myScore, timeData));
+            scoreList.Add(new ScoreData(i, myScore, timeData));
         }
     }
 
@@ -93,10 +93,12 @@ public class HistorySystem : MonoBehaviour
 
 public class ScoreData
 {
+    public int playCount;
     public int score;
     public string timeData;
-    public ScoreData(int score, string timeData)
+    public ScoreData(int playCount, int score, string timeData)
     {
+        this.playCount = playCount;
         this.score = score;
         this.timeData = timeData;
     }
