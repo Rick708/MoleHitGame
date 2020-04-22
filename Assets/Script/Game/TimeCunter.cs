@@ -77,7 +77,7 @@ public class TimeCunter : MonoBehaviour
      public void TimeUp()
     {
         enabled = false;
-        timeText.text = "タイムアップ！！";
+        timeText.text = "タイムアップ";
         GameSystem Gamestop = GameSystem.GetComponent<GameSystem>();
         Gamestop.GameStop();
         ScoreCunter Scorestop = ScoreCunter.GetComponent<ScoreCunter>();
